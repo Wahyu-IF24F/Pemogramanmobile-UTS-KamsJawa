@@ -1,0 +1,66 @@
+<ion-header class="kamus-header">
+  <div class="header-content">
+    <h2>Kamus Basa Jawa</h2>
+    <p>Temukan kata dalam 3 tingkat bahasa</p>
+
+    <div class="search-wrapper">
+      <ion-icon name="search-outline" class="search-icon"></ion-icon>
+      <ion-input
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="filterKata()"
+        placeholder="Cari kata..."
+        class="search-input"
+        clearInput="true">
+      </ion-input>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="kamus-content">
+
+  <!-- Level Tabs -->
+  <div class="level-tabs">
+    <div
+      *ngFor="let tab of tabs"
+      class="level-tab"
+      [class.active]="selectedLevel === tab.value"
+      (click)="setLevel(tab.value)">
+      {{ tab.label }}
+    </div>
+  </div>
+
+  <!-- Word List -->
+  <ion-list lines="full" class="word-list">
+    <ion-item
+      *ngFor="let kata of kataTampil; trackBy: trackByJawa"
+      class="word-item"
+      detail="false">
+
+      <div class="word-info" slot="start">
+        <div class="word-jawa">{{ kata.jawa }}</div>
+        <div class="word-indo">{{ kata.indo }}</div>
+      </div>
+
+      <div class="word-actions" slot="end">
+        <span class="level-badge" [ngClass]="getLevelClass(kata.level)">
+          {{ kata.level }}
+        </span>
+        <ion-button fill="clear" (click)="toggleFavorit(kata, $event)" class="fav-btn">
+          <ion-icon
+            [name]="favoritService.isFavorit(kata.jawa) ? 'star' : 'star-outline'"
+            [color]="favoritService.isFavorit(kata.jawa) ? 'warning' : 'medium'">
+          </ion-icon>
+        </ion-button>
+      </div>
+
+    </ion-item>
+
+    <!-- Empty State -->
+    <div *ngIf="kataTampil.length === 0" class="empty-state">
+      <ion-icon name="search-outline" class="empty-icon"></ion-icon>
+      <p>Kata tidak ditemukan</p>
+      <span>Coba kata kunci lain</span>
+    </div>
+  </ion-list>
+
+</ion-content>

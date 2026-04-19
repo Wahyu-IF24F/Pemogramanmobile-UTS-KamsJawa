@@ -1,0 +1,63 @@
+<ion-header class="favorit-header">
+  <div class="header-content">
+    <div class="header-row">
+      <div>
+        <h2>Kata Favorit</h2>
+        <p>Kata yang telah Anda simpan</p>
+      </div>
+      <ion-button
+        *ngIf="(favorit$ | async)?.length"
+        fill="clear"
+        class="clear-btn"
+        (click)="hapusSemuaFavorit()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="favorit-content">
+
+  <ng-container *ngIf="favorit$ | async as favList">
+
+    <!-- Daftar Favorit -->
+    <ion-list lines="full" *ngIf="favList.length > 0; else emptyState">
+      <ion-item-sliding *ngFor="let kata of favList; trackBy: trackByJawa">
+
+        <ion-item class="fav-item" detail="false">
+          <div class="word-info" slot="start">
+            <div class="word-jawa">{{ kata.jawa }}</div>
+            <div class="word-indo">{{ kata.indo }}</div>
+          </div>
+          <div class="word-actions" slot="end">
+            <span class="level-badge" [ngClass]="getLevelClass(kata.level)">
+              {{ kata.level }}
+            </span>
+            <ion-button fill="clear" (click)="hapusFavorit(kata)" class="del-btn">
+              <ion-icon name="star" color="warning"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-item>
+
+        <!-- Swipe to delete -->
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="hapusFavorit(kata)">
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+
+    <!-- Empty State -->
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <ion-icon name="star-outline" class="empty-icon"></ion-icon>
+        <p>Belum ada kata favorit</p>
+        <span>Ketuk ☆ di halaman Kamus untuk menyimpan kata.</span>
+      </div>
+    </ng-template>
+
+  </ng-container>
+
+</ion-content>

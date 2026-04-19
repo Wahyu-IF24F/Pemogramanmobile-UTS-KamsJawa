@@ -1,0 +1,65 @@
+<ion-header class="info-header">
+  <div class="header-content">
+    <h2>Tentang Aplikasi</h2>
+    <p>Panduan & Informasi</p>
+  </div>
+</ion-header>
+
+<ion-content class="info-content">
+
+  <!-- Tentang Basa Jawa -->
+  <div class="info-card">
+    <div class="card-title">
+      <ion-icon name="globe-outline" class="card-icon"></ion-icon>
+      Tentang Basa Jawa
+    </div>
+    <p class="card-text">
+      Bahasa Jawa memiliki sistem tingkat tutur (<em>undha-usuk</em>) yang mencerminkan norma sopan santun.
+      Pilih tingkat yang sesuai dengan lawan bicara Anda.
+    </p>
+  </div>
+
+  <!-- Tingkat Bahasa -->
+  <div class="info-card">
+    <div class="card-title">
+      <ion-icon name="layers-outline" class="card-icon"></ion-icon>
+      Tingkat Bahasa
+    </div>
+    <div class="tingkat-list">
+      <div class="tingkat-item" *ngFor="let t of tingkatList">
+        <span class="level-badge" [ngClass]="t.cssClass">{{ t.kode }}</span>
+        <div class="tingkat-info">
+          <strong>{{ t.label }}</strong>
+          <span>{{ t.deskripsi }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cara Menggunakan -->
+  <div class="info-card">
+    <div class="card-title">
+      <ion-icon name="help-circle-outline" class="card-icon"></ion-icon>
+      Cara Menggunakan
+    </div>
+    <div class="panduan-list">
+      <div class="panduan-item" *ngFor="let p of panduanList">
+        <span class="panduan-no">{{ p.no }}</span>
+        <span class="panduan-teks">{{ p.teks }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Versi -->
+  <div class="info-card version-card">
+    <div class="card-title">
+      <ion-icon name="information-circle-outline" class="card-icon"></ion-icon>
+      Versi Aplikasi
+    </div>
+    <div class="version-info">
+      <span class="version-number">v1.0.0</span>
+      <span class="version-stack">Ionic + Angular · NgModule</span>
+    </div>
+  </div>
+
+</ion-content>

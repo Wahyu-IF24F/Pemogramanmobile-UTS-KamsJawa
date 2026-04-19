@@ -1,0 +1,46 @@
+// ── Ionic Global Styles ───────────────────────────────────
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+// ── Custom Global Overrides ───────────────────────────────
+
+ion-tab-bar {
+  --background: var(--ion-background-color, #fff);
+  --border: 1px solid var(--ion-color-light-shade, #e0e0e0);
+  height: 56px;
+}
+
+ion-tab-button {
+  --color: var(--ion-color-medium, #888);
+  --color-selected: #1D9E75;
+  font-size: 11px;
+
+  ion-label {
+    font-size: 11px;
+    font-weight: 500;
+  }
+}
+
+ion-header {
+  &::after {
+    display: none; // remove ion-header shadow line
+  }
+}
+
+ion-list {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+ion-item {
+  --highlight-color-focused: #1D9E75;
+  --highlight-color-valid: #1D9E75;
+}

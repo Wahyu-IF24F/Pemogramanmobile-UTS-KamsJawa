@@ -1,0 +1,15 @@
+{
+  "name": "kamus-basa-jawa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "serve": {
+    "browser": {
+      "options": {
+        "port": 8100,
+        "host": "localhost"
+      }
+    }
+  }
+}

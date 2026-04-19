@@ -1,0 +1,170 @@
+.info-header {
+  --background: transparent;
+  box-shadow: none;
+
+  .header-content {
+    background: #1D9E75;
+    padding: 16px 16px 14px;
+
+    h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: white;
+      margin: 0 0 2px;
+    }
+
+    p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0;
+    }
+  }
+}
+
+.info-content {
+  --background: var(--ion-background-color, #f5f5f5);
+}
+
+// ── Info Card ─────────────────────────────────────────────
+.info-card {
+  background: var(--ion-item-background, #fff);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 12px 16px 0;
+  border: 1px solid var(--ion-color-light-shade, #e8e8e8);
+
+  &:last-child {
+    margin-bottom: 24px;
+  }
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ion-text-color, #333);
+  margin-bottom: 10px;
+
+  .card-icon {
+    font-size: 18px;
+    color: #1D9E75;
+  }
+}
+
+.card-text {
+  font-size: 13px;
+  color: var(--ion-color-medium, #666);
+  line-height: 1.6;
+  margin: 0;
+}
+
+// ── Tingkat List ──────────────────────────────────────────
+.tingkat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tingkat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  .tingkat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    strong {
+      font-size: 13px;
+      color: var(--ion-text-color, #333);
+    }
+
+    span {
+      font-size: 12px;
+      color: var(--ion-color-medium, #888);
+      line-height: 1.4;
+    }
+  }
+}
+
+// ── Level Badges ──────────────────────────────────────────
+.level-badge {
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+
+  &.badge-ngoko {
+    background: #E1F5EE;
+    color: #0F6E56;
+  }
+
+  &.badge-madya {
+    background: #E6F1FB;
+    color: #185FA5;
+  }
+
+  &.badge-krama {
+    background: #EEEDFE;
+    color: #534AB7;
+  }
+}
+
+// ── Panduan ───────────────────────────────────────────────
+.panduan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panduan-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  .panduan-no {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #1D9E75;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .panduan-teks {
+    font-size: 13px;
+    color: var(--ion-color-medium, #666);
+    line-height: 1.5;
+    padding-top: 3px;
+  }
+}
+
+// ── Version Card ──────────────────────────────────────────
+.version-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .version-number {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1D9E75;
+  }
+
+  .version-stack {
+    font-size: 12px;
+    color: var(--ion-color-medium, #888);
+  }
+}

@@ -1,0 +1,122 @@
+.favorit-header {
+  --background: transparent;
+  box-shadow: none;
+
+  .header-content {
+    background: #1D9E75;
+    padding: 16px 16px 14px;
+
+    .header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: white;
+      margin: 0 0 2px;
+    }
+
+    p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0;
+    }
+  }
+}
+
+.clear-btn {
+  --color: rgba(255, 255, 255, 0.8);
+  --padding-end: 0;
+  margin-top: -4px;
+}
+
+.favorit-content {
+  --background: var(--ion-background-color, #f5f5f5);
+}
+
+.fav-item {
+  --background: var(--ion-item-background, #fff);
+  --padding-start: 16px;
+  --padding-end: 8px;
+  --inner-padding-end: 0;
+
+  .word-info {
+    flex: 1;
+    padding: 2px 0;
+
+    .word-jawa {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ion-text-color, #333);
+    }
+
+    .word-indo {
+      font-size: 12px;
+      color: var(--ion-color-medium, #888);
+      margin-top: 2px;
+    }
+  }
+
+  .word-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.del-btn {
+  --padding-start: 6px;
+  --padding-end: 6px;
+  height: 36px;
+}
+
+.level-badge {
+  font-size: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  &.badge-ngoko {
+    background: #E1F5EE;
+    color: #0F6E56;
+  }
+
+  &.badge-madya {
+    background: #E6F1FB;
+    color: #185FA5;
+  }
+
+  &.badge-krama {
+    background: #EEEDFE;
+    color: #534AB7;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--ion-color-medium, #888);
+
+  .empty-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    display: block;
+    color: #f0c040;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: var(--ion-color-dark, #444);
+  }
+
+  span {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}

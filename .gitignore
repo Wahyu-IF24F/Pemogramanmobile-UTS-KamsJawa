@@ -1,0 +1,30 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Build outputs
+www/
+dist/
+out-tsc/
+
+# Capacitor
+android/
+ios/
+
+# Angular
+.angular/
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+src/environments/environment.prod.ts
