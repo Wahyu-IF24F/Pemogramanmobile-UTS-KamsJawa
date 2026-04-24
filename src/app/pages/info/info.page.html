@@ -1,48 +1,55 @@
 <ion-header class="info-header">
-  <div class="header-content">
-    <h2>Tentang Aplikasi</h2>
-    <p>Panduan & Informasi</p>
+  <div class="header-gradient">
+    <div class="header-content">
+      <ion-icon name="information-circle" class="header-icon"></ion-icon>
+      <div class="header-text">
+        <h1 class="header-title">Tentang Aplikasi</h1>
+        <p class="header-subtitle">Panduan & Informasi Lengkap</p>
+      </div>
+    </div>
   </div>
 </ion-header>
 
 <ion-content class="info-content">
 
   <!-- Tentang Basa Jawa -->
-  <div class="info-card">
-    <div class="card-title">
-      <ion-icon name="globe-outline" class="card-icon"></ion-icon>
-      Tentang Basa Jawa
+  <div class="info-section">
+    <div class="intro-card">
+      <div class="intro-icon-wrapper">
+        <ion-icon name="globe" class="intro-icon"></ion-icon>
+      </div>
+      <h2 class="intro-title">Tentang Basa Jawa</h2>
+      <p class="intro-text">
+        Bahasa Jawa memiliki sistem tingkat tutur (<em>undha-usuk</em>) yang mencerminkan norma sopan santun.
+        Pilih tingkat yang sesuai dengan lawan bicara Anda.
+      </p>
     </div>
-    <p class="card-text">
-      Bahasa Jawa memiliki sistem tingkat tutur (<em>undha-usuk</em>) yang mencerminkan norma sopan santun.
-      Pilih tingkat yang sesuai dengan lawan bicara Anda.
-    </p>
   </div>
 
   <!-- Tingkat Bahasa -->
-  <div class="info-card">
-    <div class="card-title">
-      <ion-icon name="layers-outline" class="card-icon"></ion-icon>
-      Tingkat Bahasa
+  <div class="info-section">
+    <div class="section-header">
+      <ion-icon name="layers" class="section-icon"></ion-icon>
+      <h2 class="section-title">Tingkat Bahasa</h2>
     </div>
-    <div class="tingkat-list">
-      <div class="tingkat-item" *ngFor="let t of tingkatList">
-        <span class="level-badge" [ngClass]="t.cssClass">{{ t.kode }}</span>
-        <div class="tingkat-info">
-          <strong>{{ t.label }}</strong>
-          <span>{{ t.deskripsi }}</span>
+    <div class="tingkat-card">
+      <div class="tingkat-item" *ngFor="let t of tingkatList" [ngClass]="'tingkat-' + t.cssClass">
+        <div class="tingkat-header">
+          <span class="level-badge" [ngClass]="t.cssClass">{{ t.kode }}</span>
+          <h3 class="tingkat-label">{{ t.label }}</h3>
         </div>
+        <p class="tingkat-deskripsi">{{ t.deskripsi }}</p>
       </div>
     </div>
   </div>
 
   <!-- Cara Menggunakan -->
-  <div class="info-card">
-    <div class="card-title">
-      <ion-icon name="help-circle-outline" class="card-icon"></ion-icon>
-      Cara Menggunakan
+  <div class="info-section">
+    <div class="section-header">
+      <ion-icon name="book" class="section-icon"></ion-icon>
+      <h2 class="section-title">Cara Menggunakan</h2>
     </div>
-    <div class="panduan-list">
+    <div class="panduan-card">
       <div class="panduan-item" *ngFor="let p of panduanList">
         <span class="panduan-no">{{ p.no }}</span>
         <span class="panduan-teks">{{ p.teks }}</span>
@@ -50,16 +57,36 @@
     </div>
   </div>
 
-  <!-- Versi -->
-  <div class="info-card version-card">
-    <div class="card-title">
-      <ion-icon name="information-circle-outline" class="card-icon"></ion-icon>
-      Versi Aplikasi
+  <!-- Versi Aplikasi -->
+  <div class="info-section">
+    <div class="section-header">
+      <ion-icon name="settings" class="section-icon"></ion-icon>
+      <h2 class="section-title">Versi Aplikasi</h2>
     </div>
-    <div class="version-info">
-      <span class="version-number">v1.0.0</span>
-      <span class="version-stack">Ionic + Angular · NgModule</span>
+    <div class="version-card">
+      <div class="version-item">
+        <div class="version-label">Versi</div>
+        <div class="version-value">{{ appVersion }}</div>
+      </div>
+      <div class="version-divider"></div>
+      <div class="version-item">
+        <div class="version-label">Teknologi</div>
+        <div class="version-value">Ionic + Angular</div>
+      </div>
+      <div class="version-divider"></div>
+      <div class="version-item">
+        <div class="version-label">Update Terakhir</div>
+        <div class="version-value">{{ lastUpdate }}</div>
+      </div>
+      <div class="version-divider"></div>
+      <div class="version-item">
+        <div class="version-label">Tujuan</div>
+        <div class="version-value">Edukasi Bahasa Jawa</div>
+      </div>
     </div>
   </div>
+
+  <!-- Footer Spacing -->
+  <div class="footer-spacing"></div>
 
 </ion-content>

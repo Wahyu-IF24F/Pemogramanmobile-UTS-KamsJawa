@@ -1,170 +1,582 @@
+// ════════════════════════════════════════════════════════
+// KAMUS JAWA - HALAMAN TENTANG APLIKASI (Info Page)
+// Desain: Modern, Minimalist + Soft UI + Edukasi
+// ════════════════════════════════════════════════════════
+
+// Color Palette
+$primary-green: #1D9E75;
+$primary-light: #2CBF89;
+$primary-lighter: #E8F7F3;
+$primary-faded: #F5FFFB;
+
+$secondary-blue: #185FA5;
+$secondary-blue-light: #E6F1FB;
+
+$secondary-purple: #534AB7;
+$secondary-purple-light: #EEEDFE;
+
+$text-primary: #1a1a1a;
+$text-secondary: #666666;
+$text-light: #999999;
+$border-light: #e8e8e8;
+$bg-base: #fafafa;
+
+// Soft Shadow
+$shadow-sm: 0 2px 8px rgba(29, 158, 117, 0.08);
+$shadow-md: 0 4px 16px rgba(29, 158, 117, 0.12);
+$shadow-lg: 0 8px 24px rgba(29, 158, 117, 0.15);
+
+// Animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// HEADER - Gradient Hijau Modern
+// ════════════════════════════════════════════════════════
+
 .info-header {
   --background: transparent;
+  --border-color: transparent;
   box-shadow: none;
+  padding: 0;
+  margin: 0;
+
+  .header-gradient {
+    background: linear-gradient(135deg, $primary-green 0%, $primary-light 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 32px 20px 28px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+  }
 
   .header-content {
-    background: #1D9E75;
-    padding: 16px 16px 14px;
-
-    h2 {
-      font-size: 17px;
-      font-weight: 600;
-      color: white;
-      margin: 0 0 2px;
-    }
-
-    p {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.75);
-      margin: 0;
-    }
-  }
-}
-
-.info-content {
-  --background: var(--ion-background-color, #f5f5f5);
-}
-
-// ── Info Card ─────────────────────────────────────────────
-.info-card {
-  background: var(--ion-item-background, #fff);
-  border-radius: 14px;
-  padding: 16px;
-  margin: 12px 16px 0;
-  border: 1px solid var(--ion-color-light-shade, #e8e8e8);
-
-  &:last-child {
-    margin-bottom: 24px;
-  }
-}
-
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ion-text-color, #333);
-  margin-bottom: 10px;
-
-  .card-icon {
-    font-size: 18px;
-    color: #1D9E75;
-  }
-}
-
-.card-text {
-  font-size: 13px;
-  color: var(--ion-color-medium, #666);
-  line-height: 1.6;
-  margin: 0;
-}
-
-// ── Tingkat List ──────────────────────────────────────────
-.tingkat-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.tingkat-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-
-  .tingkat-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-
-    strong {
-      font-size: 13px;
-      color: var(--ion-text-color, #333);
-    }
-
-    span {
-      font-size: 12px;
-      color: var(--ion-color-medium, #888);
-      line-height: 1.4;
-    }
-  }
-}
-
-// ── Level Badges ──────────────────────────────────────────
-.level-badge {
-  font-size: 10px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  font-weight: 600;
-  text-transform: capitalize;
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin-top: 1px;
-
-  &.badge-ngoko {
-    background: #E1F5EE;
-    color: #0F6E56;
-  }
-
-  &.badge-madya {
-    background: #E6F1FB;
-    color: #185FA5;
-  }
-
-  &.badge-krama {
-    background: #EEEDFE;
-    color: #534AB7;
-  }
-}
-
-// ── Panduan ───────────────────────────────────────────────
-.panduan-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.panduan-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-
-  .panduan-no {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #1D9E75;
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 16px;
+    animation: fadeInUp 0.6s ease-out;
+
+    .header-icon {
+      font-size: 48px;
+      color: white;
+      opacity: 0.95;
+      flex-shrink: 0;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .header-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: white;
+        margin: 0;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+      }
+
+      .header-subtitle {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+      }
+    }
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// CONTENT
+// ════════════════════════════════════════════════════════
+
+.info-content {
+  --background: $bg-base;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+// ════════════════════════════════════════════════════════
+// SECTION STYLING
+// ════════════════════════════════════════════════════════
+
+.info-section {
+  padding: 20px 16px;
+  animation: fadeIn 0.8s ease-out;
+
+  &:first-child {
+    padding-top: 24px;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  animation: slideInLeft 0.6s ease-out;
+
+  .section-icon {
+    font-size: 24px;
+    color: $primary-green;
     flex-shrink: 0;
   }
 
-  .panduan-teks {
-    font-size: 13px;
-    color: var(--ion-color-medium, #666);
-    line-height: 1.5;
-    padding-top: 3px;
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0;
+    letter-spacing: -0.3px;
   }
 }
 
-// ── Version Card ──────────────────────────────────────────
-.version-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+// ════════════════════════════════════════════════════════
+// INTRO CARD - Tentang Basa Jawa
+// ════════════════════════════════════════════════════════
 
-  .version-number {
-    font-size: 20px;
-    font-weight: 700;
-    color: #1D9E75;
+.intro-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: $shadow-md;
+  border: 1px solid rgba($primary-green, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
   }
 
-  .version-stack {
-    font-size: 12px;
-    color: var(--ion-color-medium, #888);
+  .intro-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: $primary-lighter;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    animation: fadeIn 0.6s ease-out 0.2s both;
+
+    .intro-icon {
+      font-size: 32px;
+      color: $primary-green;
+    }
+  }
+
+  .intro-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.3px;
+  }
+
+  .intro-text {
+    font-size: 14px;
+    color: $text-secondary;
+    line-height: 1.7;
+    margin: 0;
+
+    em {
+      font-style: italic;
+      color: $primary-green;
+      font-weight: 600;
+    }
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// TINGKAT CARD - Tingkat Bahasa
+// ════════════════════════════════════════════════════════
+
+.tingkat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.tingkat-item {
+  background: white;
+  border-radius: 22px;
+  padding: 18px 16px;
+  border: 2px solid transparent;
+  box-shadow: $shadow-sm;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+
+  // Tingkat Ngoko - Hijau Pastel
+  &.tingkat-ngoko {
+    border-color: rgba(29, 158, 117, 0.2);
+    background: linear-gradient(135deg, rgba(29, 158, 117, 0.02) 0%, rgba(29, 158, 117, 0.04) 100%);
+
+    &:hover {
+      border-color: rgba(29, 158, 117, 0.3);
+      background: linear-gradient(135deg, rgba(29, 158, 117, 0.06) 0%, rgba(29, 158, 117, 0.08) 100%);
+    }
+  }
+
+  // Tingkat Madya - Biru Pastel
+  &.tingkat-madya {
+    border-color: rgba(24, 95, 165, 0.2);
+    background: linear-gradient(135deg, rgba(24, 95, 165, 0.02) 0%, rgba(24, 95, 165, 0.04) 100%);
+
+    &:hover {
+      border-color: rgba(24, 95, 165, 0.3);
+      background: linear-gradient(135deg, rgba(24, 95, 165, 0.06) 0%, rgba(24, 95, 165, 0.08) 100%);
+    }
+  }
+
+  // Tingkat Krama - Ungu Pastel
+  &.tingkat-krama {
+    border-color: rgba(83, 74, 183, 0.2);
+    background: linear-gradient(135deg, rgba(83, 74, 183, 0.02) 0%, rgba(83, 74, 183, 0.04) 100%);
+
+    &:hover {
+      border-color: rgba(83, 74, 183, 0.3);
+      background: linear-gradient(135deg, rgba(83, 74, 183, 0.06) 0%, rgba(83, 74, 183, 0.08) 100%);
+    }
+  }
+
+  .tingkat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .level-badge {
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    // Badge Colors - Pastel
+    &.ngoko {
+      background: linear-gradient(135deg, #D4F4E8 0%, #E1F5EE 100%);
+      color: #0F6E56;
+    }
+
+    &.madya {
+      background: linear-gradient(135deg, #DCE8F7 0%, #E6F1FB 100%);
+      color: #185FA5;
+    }
+
+    &.krama {
+      background: linear-gradient(135deg, #E8E4F8 0%, #EEEDFE 100%);
+      color: #534AB7;
+    }
+  }
+
+  .tingkat-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0;
+    letter-spacing: -0.2px;
+    flex: 1;
+  }
+
+  .tingkat-deskripsi {
+    font-size: 13px;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0;
+    padding-left: 0;
+  }
+}\n\n// ════════════════════════════════════════════════════════
+// PANDUAN CARD - Cara Menggunakan
+// ════════════════════════════════════════════════════════
+
+.panduan-card {
+  background: white;
+  border-radius: 24px;
+  padding: 20px 16px;
+  box-shadow: $shadow-md;
+  border: 1px solid $border-light;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+
+  .panduan-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    animation: slideInLeft 0.5s ease-out;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba($primary-green, 0.08);
+    }
+
+    .panduan-no {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, $primary-green 0%, $primary-light 100%);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba($primary-green, 0.25);
+      transition: all 0.3s ease;
+      margin-top: 2px;
+
+      &:hover {
+        transform: scale(1.1) rotateZ(5deg);
+        box-shadow: 0 6px 16px rgba($primary-green, 0.35);
+      }
+    }
+
+    .panduan-teks {
+      font-size: 14px;
+      color: $text-secondary;
+      line-height: 1.6;
+      padding-top: 4px;
+      font-weight: 500;
+    }
+  }
+}\n\n// ════════════════════════════════════════════════════════
+// VERSION CARD - Versi Aplikasi
+// ════════════════════════════════════════════════════════
+
+.version-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: $shadow-md;
+  border: 1px solid $border-light;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+
+  .version-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 0;
+    animation: fadeIn 0.6s ease-out;
+
+    .version-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: $text-light;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .version-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: $text-primary;
+      line-height: 1.4;
+    }
+  }
+
+  .version-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba($primary-green, 0.1) 50%,
+      transparent 100%
+    );
+    margin: 8px 0;
+  }
+}\n\n// ════════════════════════════════════════════════════════
+// FOOTER SPACING
+// ════════════════════════════════════════════════════════
+
+.footer-spacing {
+  height: 24px;
+  background: transparent;
+}
+
+// ════════════════════════════════════════════════════════
+// RESPONSIVE - Mobile Optimization
+// ════════════════════════════════════════════════════════
+
+@media (max-width: 480px) {
+  .info-header {
+    .header-gradient {
+      padding: 24px 16px 20px;
+    }
+
+    .header-content {
+      gap: 12px;
+
+      .header-icon {
+        font-size: 40px;
+      }
+
+      .header-text {
+        .header-title {
+          font-size: 24px;
+        }
+
+        .header-subtitle {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .info-section {
+    padding: 16px 12px;
+  }
+
+  .intro-card,
+  .panduan-card,
+  .version-card {
+    border-radius: 20px;
+    padding: 20px 16px;
+  }
+
+  .tingkat-item {
+    border-radius: 20px;
+    padding: 16px 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .info-header {
+    .header-content {
+      .header-text {
+        .header-title {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  .section-header {
+    .section-title {
+      font-size: 16px;
+    }
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// DARK MODE SUPPORT (Optional)
+// ════════════════════════════════════════════════════════
+
+@media (prefers-color-scheme: dark) {
+  .info-header {
+    .header-gradient {
+      background: linear-gradient(135deg, #157850 0%, #1a9c6f 100%);
+    }
+  }
+
+  .info-content {
+    --background: #1a1a1a;
+  }
+
+  .intro-card,
+  .tingkat-item,
+  .panduan-card,
+  .version-card {
+    background: #2a2a2a;
+    border-color: rgba($primary-green, 0.15);
+    color: #f5f5f5;
+  }
+
+  .section-header .section-title,
+  .intro-card .intro-title,
+  .tingkat-item .tingkat-label {
+    color: #f5f5f5;
+  }
+
+  .intro-card .intro-text,
+  .tingkat-item .tingkat-deskripsi,
+  .panduan-item .panduan-teks,
+  .version-item .version-value {
+    color: #c0c0c0;
+  }
+
+  .section-header .section-icon {
+    color: $primary-light;
+  }
+
+  .intro-icon-wrapper {
+    background: rgba($primary-green, 0.15);
   }
 }
